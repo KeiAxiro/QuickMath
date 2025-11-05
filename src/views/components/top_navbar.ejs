@@ -1,0 +1,44 @@
+<nav>
+
+  <h6 class="max" translate="no">
+    <a class="secondary-text" href="/"
+      ><span class="primary-text bold">Quick</span>Math</a
+    >
+  </h6>
+  <% if (false) { %>
+  <button class="circle transparent border" @click="isMoreOpen = true">
+    <img class="responsive" loading="lazy" src="https://ui-avatars.com/api/?name=<%= "user.nama" %>&size=128&background=8f8f8f&color=fff&bold=true" />
+  </button>
+  <menu
+    id="menu-more"
+    class="left small-padding border small-round surface-bright"
+    x-show="isMoreOpen"
+    x-bind:class="isMoreOpen? 'active' : ''"
+    @click.outside="isMoreOpen = false"
+  >
+    <div class="row">
+      <img class="circle large" loading="lazy" src="https://ui-avatars.com/api/?name=<%= "user.nama" %>&size=128&background=8f8f8f&color=fff&bold=true" />
+      <div class="max">
+        <h6><%= "user.nama" %></h6>
+        <span><%= "user.email" %></span>
+      </div>
+    </div>
+    <nav class="top-margin">
+      <a href="/api/auth/logout">
+        <button>
+          <i>logout</i>
+          <span>Logout</span>
+        </button>
+      </a>
+    </nav>
+  </menu>
+  <% }else{ %>
+  <button
+    hx-target="#res"
+    hx-get="/api/components/login"
+    hx-indicator="#indicator-bar"
+  >
+    <i>login</i>Login
+  </button>
+  <% } %>
+</nav>
